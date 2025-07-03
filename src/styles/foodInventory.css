@@ -1,0 +1,49 @@
+body, .food-inventory-dashboard {
+  font-family: 'Inter', sans-serif;
+}
+
+.food-table .expired-row {
+  background-color: #ffeaea !important;
+}
+
+.food-table .low-row {
+  background-color: #fffbe6 !important;
+}
+
+.food-table td, .food-table th {
+  vertical-align: middle;
+}
+
+.food-inventory-dashboard h2 {
+  color: #3b3b6d;
+  text-shadow: 0 2px 8px rgba(59,59,109,0.08);
+}
+
+.food-inventory-dashboard .badge-success {
+  background-color: #22c55e !important;
+}
+.food-inventory-dashboard .badge-warning {
+  background-color: #facc15 !important;
+  color: #7c5700 !important;
+}
+.food-inventory-dashboard .badge-danger {
+  background-color: #ef4444 !important;
+}
+
+@media (max-width: 768px) {
+  .food-inventory-dashboard h2 {
+    font-size: 1.5rem;
+  }
+  .food-table th, .food-table td {
+    font-size: 0.95rem;
+    padding: 0.5rem;
+  }
+}
+
+.modal-content {
+  border-radius: 1rem;
+}
+
+.food-inventory-dashboard .form-label {
+  font-weight: 500;
+} 
