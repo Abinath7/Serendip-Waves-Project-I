@@ -20,7 +20,7 @@ const initialBookings = [
     id: 'B001',
     passenger: 'John Doe',
     cruise: 'Serendip Dream',
-    cabinId: 'S101',
+    cabinNumber: '101',
     cabinType: 'Suite',
     guests: 2,
     date: '2024-07-01',
@@ -30,7 +30,7 @@ const initialBookings = [
     id: 'B002',
     passenger: 'Jane Smith',
     cruise: 'Serendip Majesty',
-    cabinId: 'B202',
+    cabinNumber: '202',
     cabinType: 'Balcony',
     guests: 3,
     date: '2024-07-05',
@@ -40,7 +40,7 @@ const initialBookings = [
     id: 'B003',
     passenger: 'Michael Lee',
     cruise: 'Serendip Explorer',
-    cabinId: 'O303',
+    cabinNumber: '303',
     cabinType: 'Oceanview',
     guests: 4,
     date: '2024-07-10',
@@ -50,7 +50,7 @@ const initialBookings = [
     id: 'B004',
     passenger: 'Emily Clark',
     cruise: 'Serendip Serenade',
-    cabinId: 'I404',
+    cabinNumber: '404',
     cabinType: 'Interior',
     guests: 1,
     date: '2024-07-12',
@@ -60,7 +60,7 @@ const initialBookings = [
     id: 'B005',
     passenger: 'Carlos Gomez',
     cruise: 'Serendip Adventurer',
-    cabinId: 'S505',
+    cabinNumber: '505',
     cabinType: 'Suite',
     guests: 2,
     date: '2024-07-15',
@@ -70,7 +70,7 @@ const initialBookings = [
     id: 'B006',
     passenger: 'Sophia Patel',
     cruise: 'Serendip Harmony',
-    cabinId: 'B606',
+    cabinNumber: '606',
     cabinType: 'Balcony',
     guests: 3,
     date: '2024-07-18',
@@ -80,7 +80,7 @@ const initialBookings = [
     id: 'B007',
     passenger: 'Liam Nguyen',
     cruise: 'Serendip Dream',
-    cabinId: 'O107',
+    cabinNumber: '107',
     cabinType: 'Oceanview',
     guests: 2,
     date: '2024-07-20',
@@ -90,7 +90,7 @@ const initialBookings = [
     id: 'B008',
     passenger: 'Olivia Brown',
     cruise: 'Serendip Majesty',
-    cabinId: 'S208',
+    cabinNumber: '208',
     cabinType: 'Suite',
     guests: 4,
     date: '2024-07-22',
@@ -100,8 +100,8 @@ const initialBookings = [
     id: 'B009',
     passenger: 'Noah Wilson',
     cruise: 'Serendip Explorer',
-    cabinId: 'O309',
-    cabinType: 'Oceanview',
+    cabinNumber: '309',
+    cabinType: 'Interior',
     guests: 1,
     date: '2024-07-25',
     price: 1700,
@@ -110,7 +110,7 @@ const initialBookings = [
     id: 'B010',
     passenger: 'Ava Martinez',
     cruise: 'Serendip Serenade',
-    cabinId: 'B410',
+    cabinNumber: '410',
     cabinType: 'Balcony',
     guests: 2,
     date: '2024-07-28',
@@ -133,7 +133,7 @@ function BookingOverviewPage() {
     id: '',
     passenger: '',
     cruise: '',
-    cabinId: '',
+    cabinNumber: '',
     cabinType: '',
     guests: 1,
     date: '',
@@ -169,7 +169,7 @@ function BookingOverviewPage() {
       id: '',
       passenger: '',
       cruise: '',
-      cabinId: '',
+      cabinNumber: '',
       cabinType: '',
       guests: 1,
       date: '',
@@ -194,14 +194,14 @@ function BookingOverviewPage() {
   const handleFormSubmit = e => {
     e.preventDefault();
     // Validate required fields
-    if (!form.passenger || !form.cruise || !form.cabinId || !form.cabinType || !form.date || !form.price) {
+    if (!form.passenger || !form.cruise || !form.cabinNumber || !form.cabinType || !form.date || !form.price) {
       setFormError('Please fill in all required fields.');
       return;
     }
     // Validate double booking
     const isDoubleBooked = bookings.some(b =>
       b.cruise === form.cruise &&
-      b.cabinId === form.cabinId &&
+      b.cabinNumber === form.cabinNumber &&
       b.date === form.date &&
       (modalMode === 'add' || (modalMode === 'edit' && b.id !== form.id))
     );
@@ -303,7 +303,7 @@ function BookingOverviewPage() {
               <th><FaShip className="me-1" /> Booking ID</th>
               <th><FaUser className="me-1" /> Passenger Name</th>
               <th><FaShip className="me-1" /> Cruise Title</th>
-              <th><FaBed className="me-1" /> Cabin ID</th>
+              <th><FaBed className="me-1" /> Cabin Number</th>
               <th><FaBed className="me-1" /> Cabin Type</th>
               <th><FaUsers className="me-1" /> Guests</th>
               <th><FaCalendarAlt className="me-1" /> Booking Date</th>
@@ -320,7 +320,7 @@ function BookingOverviewPage() {
                   <td>{b.id}</td>
                   <td>{b.passenger}</td>
                   <td>{b.cruise}</td>
-                  <td>{b.cabinId}</td>
+                  <td>{b.cabinNumber}</td>
                   <td>{b.cabinType}</td>
                   <td>{b.guests}</td>
                   <td>{b.date}</td>
@@ -363,11 +363,11 @@ function BookingOverviewPage() {
               </Form.Select>
             </Form.Group>
             <Form.Group className="mb-2">
-              <Form.Label><FaBed className="me-1" /> Cabin ID</Form.Label>
+              <Form.Label><FaBed className="me-1" /> Cabin Number</Form.Label>
               <Form.Control
                 type="text"
-                name="cabinId"
-                value={form.cabinId}
+                name="cabinNumber"
+                value={form.cabinNumber}
                 onChange={handleFormChange}
                 required
               />

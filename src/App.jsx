@@ -8,10 +8,8 @@ import Navbar from './Navbar';
 import LoginModal from './LoginModal';
 import CruiseShipsPage from './CruiseShipsPage';
 import BookingOverviewPage from './BookingOverviewPage';
-import SuperAdminDashboard from './components/SuperAdminDashboard';
+import SuperAdminDashboard from './SuperAdminDashboard';
 import CustomerDashboard from './CustomerDashboard';
-import PassengerDashboard from './components/PassengerDashboard';
-import FoodInventoryDashboard from './components/FoodInventoryDashboard';
 
 // Authentication Context
 const AuthContext = React.createContext();
@@ -99,8 +97,6 @@ function AppRoutes(props) {
         } />
         <Route path="/super-admin" element={<SuperAdminDashboard />} />
         <Route path="/customer-dashboard" element={<CustomerDashboard />} />
-        <Route path="/passenger-management" element={<PassengerDashboard />} />
-        <Route path="/food-inventory" element={<FoodInventoryDashboard userRole="Super Admin" />} />
       </Routes>
     </>
   );

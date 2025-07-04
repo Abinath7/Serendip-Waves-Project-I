@@ -1,0 +1,57 @@
+/* Super Admin Dashboard Themed Styles */
+.superadmin-dashboard-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.superadmin-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.dashboard-btn {
+  width: 260px;
+  height: 120px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  border: 2px solid #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin: 0 10px;
+  outline: none;
+  position: relative;
+}
+.dashboard-btn.active:hover, .dashboard-btn.active:focus {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border-color: #764ba2;
+  box-shadow: 0 8px 32px rgba(102,126,234,0.15);
+}
+.dashboard-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(255,255,255,0.5);
+}
+.dashboard-btn-icon {
+  font-size: 2rem;
+  color: #764ba2;
+}
+.dashboard-btn.active:hover .dashboard-btn-icon,
+.dashboard-btn.active:focus .dashboard-btn-icon {
+  color: #fff;
+}
+.dashboard-btn-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+} 
