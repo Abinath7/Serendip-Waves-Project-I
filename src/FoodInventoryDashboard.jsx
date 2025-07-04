@@ -3376,8 +3376,8 @@
 
 
 import React, { useState, useMemo } from 'react';
-import foodInventoryData from '../data/foodInventory.json';
-import '../styles/foodInventory.css';
+import foodInventoryData from './data/foodInventory.json';
+import './styles/foodInventory.css';
 import { Button, Table, Badge, Modal, Form, Row, Col, InputGroup } from 'react-bootstrap';
 import { FaEdit, FaTrash, FaPlus, FaFileCsv, FaFilePdf, FaHistory, FaBoxOpen, FaExclamationTriangle, FaTimesCircle } from 'react-icons/fa';
 

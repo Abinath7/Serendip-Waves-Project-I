@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import HomePage from './HomePage';
 import DestinationsPage from './DestinationsPage';
 import BookingModal from './BookingModal';
@@ -10,14 +10,14 @@ import CruiseShipsPage from './CruiseShipsPage';
 import BookingOverviewPage from './BookingOverviewPage';
 import SuperAdminDashboard from './SuperAdminDashboard';
 import CustomerDashboard from './CustomerDashboard';
-import PassengerDashboard from './components/PassengerDashboard';
-import FoodInventoryDashboard from './components/FoodInventoryDashboard';
+import PassengerDashboard from './PassengerDashboard';
+import FoodInventoryDashboard from './FoodInventoryDashboard';
+import ItineraryDashboard from './ItineraryDashboard';
 
-// Authentication Context
-const AuthContext = React.createContext();
+export const AuthContext = React.createContext();
 
 function SignupRouteHandler({ isAuthenticated, setIsSignupModalOpen }) {
-  React.useEffect(() => {
+  useEffect(() => {
     setIsSignupModalOpen(true);
   }, [setIsSignupModalOpen]);
   if (isAuthenticated) return <Navigate to="/" />;
@@ -25,12 +25,19 @@ function SignupRouteHandler({ isAuthenticated, setIsSignupModalOpen }) {
 }
 
 function LoginRouteHandler({ isAuthenticated, setIsLoginModalOpen }) {
-  React.useEffect(() => {
+  useEffect(() => {
     setIsLoginModalOpen(true);
   }, [setIsLoginModalOpen]);
   if (isAuthenticated) return <Navigate to="/" />;
   return null;
 }
+
+const ProtectedRoute = ({ allowedRoles, children }) => {
+  const { isAuthenticated, currentUser } = useContext(AuthContext);
+  if (!isAuthenticated) return <Navigate to="/login" />;
+  if (allowedRoles && !allowedRoles.includes(currentUser?.role?.toLowerCase())) return <Navigate to="/" />;
+  return children;
+};
 
 function AppRoutes(props) {
   const navigate = useNavigate();
@@ -43,6 +50,7 @@ function AppRoutes(props) {
     isBookingModalOpen,
     setIsBookingModalOpen
   } = props;
+
   return (
     <>
       <Navbar
@@ -52,34 +60,25 @@ function AppRoutes(props) {
       <LoginModal
         isOpen={isLoginModalOpen}
         onClose={() => {
-          console.log("LoginModal close button clicked");
           setIsLoginModalOpen(false);
-          if (window.location.pathname === "/login") {
-            navigate("/");
-          }
+          if (window.location.pathname === "/login") navigate("/");
         }}
         onSignupClick={() => {
           setIsLoginModalOpen(false);
           setIsSignupModalOpen(true);
-          if (window.location.pathname === "/login") {
-            navigate("/signup");
-          }
+          if (window.location.pathname === "/login") navigate("/signup");
         }}
       />
       <SignupModal
         isOpen={isSignupModalOpen}
         onClose={() => {
           setIsSignupModalOpen(false);
-          if (window.location.pathname === "/signup") {
-            navigate("/");
-          }
+          if (window.location.pathname === "/signup") navigate("/");
         }}
         openLoginModal={() => {
           setIsSignupModalOpen(false);
           setIsLoginModalOpen(true);
-          if (window.location.pathname === "/signup") {
-            navigate("/login");
-          }
+          if (window.location.pathname === "/signup") navigate("/login");
         }}
       />
       <BookingModal
@@ -91,85 +90,35 @@ function AppRoutes(props) {
         <Route path="/cruise-ships" element={<CruiseShipsPage />} />
         <Route path="/booking" element={<Navigate to="/" replace />} />
         <Route path="/booking-overview" element={<BookingOverviewPage />} />
-        <Route path="/login" element={
-          <LoginRouteHandler isAuthenticated={isAuthenticated} setIsLoginModalOpen={setIsLoginModalOpen} />
-        } />
-        <Route path="/signup" element={
-          <SignupRouteHandler isAuthenticated={isAuthenticated} setIsSignupModalOpen={setIsSignupModalOpen} />
-        } />
-        <Route path="/super-admin" element={<SuperAdminDashboard />} />
-        <Route path="/customer-dashboard" element={<CustomerDashboard />} />
-        <Route path="/passenger-management" element={<PassengerDashboard />} />
-        <Route path="/food-inventory-management" element={<FoodInventoryDashboard />} />
+        <Route path="/login" element={<LoginRouteHandler isAuthenticated={isAuthenticated} setIsLoginModalOpen={setIsLoginModalOpen} />} />
+        <Route path="/signup" element={<SignupRouteHandler isAuthenticated={isAuthenticated} setIsSignupModalOpen={setIsSignupModalOpen} />} />
+
+        {/* Protected Routes */}
+        <Route path="/super-admin" element={<ProtectedRoute allowedRoles={["superadmin"]}><SuperAdminDashboard /></ProtectedRoute>} />
+        <Route path="/customer-dashboard" element={<ProtectedRoute allowedRoles={["customer"]}><CustomerDashboard /></ProtectedRoute>} />
+        <Route path="/passenger-management" element={<ProtectedRoute allowedRoles={["superadmin"]}><PassengerDashboard /></ProtectedRoute>} />
+        <Route path="/food-inventory-management" element={<ProtectedRoute allowedRoles={["superadmin"]}><FoodInventoryDashboard /></ProtectedRoute>} />
+        <Route path="/itinerary-management" element={<ProtectedRoute allowedRoles={["superadmin"]}><ItineraryDashboard /></ProtectedRoute>} />
       </Routes>
     </>
   );
 }
 
-const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [currentUser, setCurrentUser] = useState(null);
+function App() {
+  // For development: Auto-authenticate as super admin
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [currentUser, setCurrentUser] = useState({
+    id: 1,
+    name: 'Super Admin',
+    email: 'admin@serendipwaves.com',
+    role: 'superadmin'
+  });
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
-  // Check for existing authentication on app load
-  useEffect(() => {
-    const savedUser = localStorage.getItem('currentUser');
-    const savedAuth = localStorage.getItem('isAuthenticated');
-    
-    if (savedUser && savedAuth === 'true') {
-      setCurrentUser(JSON.parse(savedUser));
-      setIsAuthenticated(true);
-    }
-  }, []);
-
-  const login = (userData) => {
-    setCurrentUser(userData);
-    setIsAuthenticated(true);
-    setIsLoginModalOpen(false);
-    
-    localStorage.setItem('currentUser', JSON.stringify(userData));
-    localStorage.setItem('isAuthenticated', 'true');
-  };
-
-  const logout = () => {
-    setCurrentUser(null);
-    setIsAuthenticated(false);
-    
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('isAuthenticated');
-  };
-
-  const signup = (userData) => {
-    // Store user data in localStorage (simulating database)
-    const existingUsers = JSON.parse(localStorage.getItem('users') || '[]');
-    const newUser = { ...userData, id: Date.now() };
-    existingUsers.push(newUser);
-    localStorage.setItem('users', JSON.stringify(existingUsers));
-    
-    // Auto-login after signup
-    const { password, confirmPassword, ...userWithoutPassword } = newUser;
-    login(userWithoutPassword);
-    setIsSignupModalOpen(false);
-  };
-
-  const authValue = {
-    isAuthenticated,
-    currentUser,
-    login,
-    logout,
-    signup,
-    isLoginModalOpen,
-    setIsLoginModalOpen,
-    isSignupModalOpen,
-    setIsSignupModalOpen,
-    isBookingModalOpen,
-    setIsBookingModalOpen
-  };
-
   return (
-    <AuthContext.Provider value={authValue}>
+    <AuthContext.Provider value={{ isAuthenticated, currentUser, setIsAuthenticated, setCurrentUser }}>
       <Router>
         <AppRoutes
           isAuthenticated={isAuthenticated}
@@ -183,7 +132,6 @@ const App = () => {
       </Router>
     </AuthContext.Provider>
   );
-};
+}
 
 export default App;
-export { AuthContext };
