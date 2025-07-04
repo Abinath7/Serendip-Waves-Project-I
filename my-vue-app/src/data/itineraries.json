@@ -1,0 +1,82 @@
+[
+  {
+    "id": "IT001",
+    "shipName": "Serendip Dream",
+    "departurePort": "Galle",
+    "arrivalPort": "Trincomalee",
+    "arrivalCountry": "Sri Lanka",
+    "startDate": "2024-08-01",
+    "endDate": "2024-08-05",
+    "notes": "Scenic coastal route with wildlife viewing opportunities"
+  },
+  {
+    "id": "IT002",
+    "shipName": "Serendip Majesty",
+    "departurePort": "Colombo",
+    "arrivalPort": "Jaffna",
+    "arrivalCountry": "Sri Lanka",
+    "startDate": "2024-08-10",
+    "endDate": "2024-08-15",
+    "notes": "Cultural heritage tour with historical sites"
+  },
+  {
+    "id": "IT003",
+    "shipName": "Serendip Explorer",
+    "departurePort": "Hambantota",
+    "arrivalPort": "Galle",
+    "arrivalCountry": "Sri Lanka",
+    "startDate": "2024-08-20",
+    "endDate": "2024-08-25",
+    "notes": "Southern coastal adventure with beach activities"
+  },
+  {
+    "id": "IT004",
+    "shipName": "Serendip Serenade",
+    "departurePort": "Trincomalee",
+    "arrivalPort": "Colombo",
+    "arrivalCountry": "Sri Lanka",
+    "startDate": "2024-09-01",
+    "endDate": "2024-09-06",
+    "notes": "East to west journey with city exploration"
+  },
+  {
+    "id": "IT005",
+    "shipName": "Serendip Adventurer",
+    "departurePort": "Jaffna",
+    "arrivalPort": "Hambantota",
+    "arrivalCountry": "Sri Lanka",
+    "startDate": "2024-09-10",
+    "endDate": "2024-09-15",
+    "notes": "Full island circumnavigation experience"
+  },
+  {
+    "id": "IT006",
+    "shipName": "Serendip Harmony",
+    "departurePort": "Colombo",
+    "arrivalPort": "Galle",
+    "arrivalCountry": "Sri Lanka",
+    "startDate": "2024-09-20",
+    "endDate": "2024-09-25",
+    "notes": "Relaxing coastal cruise with wellness activities"
+  },
+  {
+    "id": "IT007",
+    "shipName": "Serendip Dream",
+    "departurePort": "Galle",
+    "arrivalPort": "Maldives",
+    "arrivalCountry": "Maldives",
+    "startDate": "2024-10-01",
+    "endDate": "2024-10-08",
+    "notes": "International cruise to tropical paradise"
+  },
+  {
+    "id": "IT008",
+    "shipName": "Serendip Majesty",
+    "departurePort": "Colombo",
+    "arrivalPort": "India",
+    "arrivalCountry": "India",
+    "startDate": "2024-10-15",
+    "endDate": "2024-10-22",
+    "notes": "Cultural exchange cruise to neighboring country"
+  }
+] 

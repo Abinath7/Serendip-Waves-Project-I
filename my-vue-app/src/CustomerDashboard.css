@@ -1,0 +1,50 @@
+/* Customer Dashboard Styles */
+.customer-dashboard-bg {
+  min-height: 80vh;
+  background: #f8f9fa;
+  padding: 2.5rem 0;
+}
+.customer-dashboard-container {
+  max-width: 700px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2rem 2.5rem;
+  margin: 0 auto;
+}
+.customer-dashboard-title {
+  color: #1a237e;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-size: 2.1rem;
+}
+.customer-dashboard-userinfo {
+  margin-bottom: 2rem;
+}
+.customer-dashboard-userinfo h5 {
+  margin-bottom: 0.5rem;
+  color: #667eea;
+  font-weight: 600;
+}
+.customer-dashboard-userinfo div {
+  font-size: 1.08rem;
+  margin-bottom: 0.2rem;
+}
+.customer-dashboard-section-title {
+  color: #1a237e;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.customer-dashboard-booking {
+  background: #f4f7fb;
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(102,126,234,0.06);
+}
+@media (max-width: 600px) {
+  .customer-dashboard-container {
+    padding: 1.2rem 0.5rem;
+  }
+} 

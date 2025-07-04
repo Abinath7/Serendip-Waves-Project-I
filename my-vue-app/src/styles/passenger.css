@@ -1,0 +1,44 @@
+body, .passenger-dashboard-bg {
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+  background: linear-gradient(135deg, #e0e7ef 60%, #f8fafc 100%);
+}
+.passenger-dashboard-bg {
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+.passenger-table-wrapper {
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.10);
+  background: #fff;
+  padding: 1.5rem 1rem;
+  margin-bottom: 2rem;
+}
+.passenger-table {
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+}
+.table-primary th {
+  background: #2563eb !important;
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 1.08rem;
+  letter-spacing: 0.5px;
+}
+.badge.bg-primary {
+  background: #2563eb !important;
+  color: #fff !important;
+}
+.badge.bg-info {
+  background: #e3f0ff !important;
+  color: #2563eb !important;
+  font-weight: 600;
+}
+@media (max-width: 767.98px) {
+  .passenger-table-wrapper {
+    padding: 0.5rem 0.2rem;
+  }
+  .passenger-table {
+    font-size: 0.95rem;
+  }
+} 

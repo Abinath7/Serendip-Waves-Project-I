@@ -1,0 +1,322 @@
+/* Cruise Ships Page Styles */
+
+/* Main Container */
+.cruise-ships-container {
+  min-height: 100vh;
+  background: #fff;
+}
+
+/* Hero Section */
+.cruise-hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cruise-hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  opacity: 0.3;
+}
+
+.cruise-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cruise-hero-title {
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  font-size: 3.5rem;
+}
+
+.cruise-hero-subtitle {
+  font-size: 1.3rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Navigation Dots */
+.cruise-nav-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.cruise-nav-dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 2px solid;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+}
+
+/* Scroll Indicator */
+.cruise-scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  animation: cruise-bounce 2s infinite;
+}
+
+.cruise-scroll-arrow {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.cruise-scroll-text {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Ship Sections */
+.cruise-ship-section {
+  min-height: 100vh;
+  padding: 80px 0;
+  position: relative;
+}
+
+.cruise-ship-section:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.cruise-ship-section:nth-child(odd) {
+  background: #ffffff;
+}
+
+/* Image Section */
+.cruise-image-container {
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cruise-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+}
+
+.cruise-image-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.cruise-image-text {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+/* Content Section */
+.cruise-content-container {
+  padding: 20px;
+}
+
+/* Ship Header */
+.cruise-ship-flag {
+  font-size: 2rem;
+  margin-right: 15px;
+}
+
+.cruise-ship-title {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cruise-ship-class {
+  font-size: 0.9rem;
+}
+
+.cruise-ship-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Ship Stats Cards */
+.cruise-stats-card {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  height: 100%;
+}
+
+.cruise-stats-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.cruise-stats-label {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+/* CTA Button */
+.cruise-cta-button {
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+}
+
+/* Footer Section */
+.cruise-footer-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 60px 0;
+  color: white;
+}
+
+/* Animations */
+@keyframes cruise-bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+  .cruise-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .cruise-hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .cruise-ship-title {
+    font-size: 2rem;
+  }
+  
+  .cruise-image-container {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .cruise-hero-title {
+    font-size: 2rem;
+  }
+  
+  .cruise-hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .cruise-ship-title {
+    font-size: 1.75rem;
+  }
+  
+  .cruise-ship-section {
+    padding: 60px 0;
+  }
+  
+  .cruise-content-container {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .cruise-hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .cruise-ship-title {
+    font-size: 1.5rem;
+  }
+  
+  .cruise-stats-value {
+    font-size: 1rem;
+  }
+  
+  .cruise-cta-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* Glass Morphism Effects */
+.cruise-glass-effect {
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+/* Hover Effects */
+.cruise-nav-dot:hover {
+  transform: scale(1.1);
+}
+
+.cruise-stats-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.cruise-cta-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 214, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+.cruise-ships-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cruise-ships-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.cruise-ships-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+}
+
+.cruise-ships-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+} 
