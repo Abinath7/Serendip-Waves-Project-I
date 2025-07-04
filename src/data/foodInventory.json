@@ -7,9 +7,7 @@
     "expiryDate": "2025-07-10",
     "supplier": "Ocean Foods Pvt Ltd",
     "purchaseDate": "2025-06-20",
-    "storageLocation": "Freezer A",
-    "supplierContacts": "011-1234567",
-    "unitPrice": "100"
+    "storageLocation": "Freezer A"
   },
   {
     "id": 2,
@@ -19,9 +17,7 @@
     "expiryDate": "2024-08-01",
     "supplier": "Dairy Best",
     "purchaseDate": "2024-07-20",
-    "storageLocation": "Refrigerator 1",
-    "supplierContacts": "011-1234567",
-    "unitPrice": "100"
+    "storageLocation": "Refrigerator 1"
   },
   {
     "id": 3,
@@ -31,9 +27,7 @@
     "expiryDate": "2024-07-25",
     "supplier": "Farm Fresh",
     "purchaseDate": "2024-07-10",
-    "storageLocation": "Pantry Shelf",
-    "supplierContacts": "011-1234567",
-    "unitPrice": "100"
+    "storageLocation": "Pantry Shelf"
   },
   {
     "id": 4,
@@ -43,9 +37,7 @@
     "expiryDate": "2024-07-15",
     "supplier": "Green Valley",
     "purchaseDate": "2024-06-30",
-    "storageLocation": "Freezer B",
-    "supplierContacts": "011-1234567",
-    "unitPrice": "100"
+    "storageLocation": "Freezer B"
   },
   {
     "id": 5,
@@ -55,8 +47,6 @@
     "expiryDate": "2026-01-01",
     "supplier": "Mediterranean Imports",
     "purchaseDate": "2024-06-15",
-    "storageLocation": "Pantry Shelf",
-    "supplierContacts": "011-1234567",
-    "unitPrice": "100"
+    "storageLocation": "Pantry Shelf"
   }
 ] 
