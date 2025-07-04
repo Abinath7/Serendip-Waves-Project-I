@@ -25,8 +25,8 @@ const dashboardButtons = [
   {
     label: 'Itinerary Management',
     icon: <FaRoute size={28} />,
-    route: '/itinerary-management',
-    active: true,
+    route: '#',
+    active: false,
   },
   {
     label: 'Passenger Management',

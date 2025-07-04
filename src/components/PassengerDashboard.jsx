@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import passengerBookings from './data/passengerBookings.json';
-import './styles/passenger.css';
+import passengerBookings from '../data/passengerBookings.json';
+import './passenger.css';
 import { Button, Form, InputGroup } from 'react-bootstrap';
 
 const adminName = 'Super Admin';
