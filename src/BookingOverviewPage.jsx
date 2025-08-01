@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form, Row, Col, Table, InputGroup } from 'react-bootstrap';
-import { FaUser, FaShip, FaBed, FaUsers, FaCalendarAlt, FaDollarSign, FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
+import { FaUser, FaShip, FaBed, FaUsers, FaCalendarAlt, FaDollarSign, FaTrash, FaPlus } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './BookingOverviewPage.css';
 import logo from './assets/logo.png';
@@ -106,12 +106,6 @@ function BookingOverviewPage() {
         citizenship: ''
       }))
     });
-    setFormError('');
-    setShowModal(true);
-  };
-  const openEditModal = booking => {
-    setModalMode('edit');
-    setForm({ ...booking });
     setFormError('');
     setShowModal(true);
   };
@@ -382,14 +376,6 @@ function BookingOverviewPage() {
                     <td>${parseFloat(b.total_price || 0).toLocaleString()}</td>
                     <td>
                       <div className="action-buttons">
-                        <Button
-                          size="sm"
-                          variant="outline-primary"
-                          onClick={() => openEditModal(b)}
-                          title="Edit Booking"
-                        >
-                          <FaEdit />
-                        </Button>
                         <Button
                           size="sm"
                           variant="outline-danger"

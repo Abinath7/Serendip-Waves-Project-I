@@ -1,12 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './AboutSection.css';
 
-const stats = [
-  { icon: 'bi bi-ship', value: 500, label: 'Happy Cruises', color: '#0a2540' },
-  { icon: 'bi bi-geo-alt', value: 50, label: 'Destinations', color: '#cda34f' },
-  { icon: 'bi bi-emoji-smile', value: 10000, label: 'Happy Customers', color: '#0a2540' },
-];
-
 function useCounterAnimation(ref, end, duration = 1200) {
   useEffect(() => {
     if (!ref.current) return;
@@ -16,7 +10,7 @@ function useCounterAnimation(ref, end, duration = 1200) {
     const animate = () => {
       current += step;
       if (current > end) current = end;
-      ref.current.innerText = current + (end >= 1000 ? '+' : '+');
+      ref.current.innerText = current.toLocaleString() + '+';
       if (current < end) requestAnimationFrame(animate);
     };
     animate();
@@ -64,15 +58,15 @@ const AboutSection = () => {
             <div className="about-stats-underline mx-auto mb-5"></div>
             <div className="d-flex flex-column flex-md-row justify-content-center align-items-center gap-5">
               <div className="about-stat-modern-card">
-                <div className="about-stat-modern-value">500+</div>
+                <div className="about-stat-modern-value" ref={cruiseRef}>500+</div>
                 <div className="about-stat-modern-label">Happy Cruises</div>
               </div>
               <div className="about-stat-modern-card">
-                <div className="about-stat-modern-value">50+</div>
+                <div className="about-stat-modern-value" ref={destRef}>50+</div>
                 <div className="about-stat-modern-label">Destinations</div>
               </div>
               <div className="about-stat-modern-card">
-                <div className="about-stat-modern-value">10,000+</div>
+                <div className="about-stat-modern-value" ref={custRef}>10,000+</div>
                 <div className="about-stat-modern-label">Happy Customers</div>
               </div>
             </div>

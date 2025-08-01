@@ -780,7 +780,7 @@ const HomePage = ({ onBookingClick }) => {
           scroll-behavior: smooth;
         }
         .view-all-ships-btn {
-          background: #102347;
+          background: #0ca172ff;
           color: #fff;
           border: none;
           font-weight: 700;
@@ -814,12 +814,14 @@ const HomePage = ({ onBookingClick }) => {
           font-weight: 700;
           letter-spacing: 0.03em;
           box-shadow: 0 4px 18px rgba(108,92,231,0.12);
-          transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+          
+          transform: translateY(0);
         }
         .view-all-facilities-btn:hover, .view-all-facilities-btn:focus {
-          background: #5b4cdb;
+          background: #a29bfe;
           color: #fff;
-          box-shadow: 0 6px 24px rgba(108,92,231,0.18);
+          box-shadow: 0 8px 32px rgba(108,92,231,0.25);
+          transform: translateY(-2px);
         }
         .view-all-dining-btn {
           background: #fd79a8;
@@ -828,12 +830,14 @@ const HomePage = ({ onBookingClick }) => {
           font-weight: 700;
           letter-spacing: 0.03em;
           box-shadow: 0 4px 18px rgba(253,121,168,0.12);
-          transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+          
+          transform: translateY(0);
         }
         .view-all-dining-btn:hover, .view-all-dining-btn:focus {
-          background: #fd6c9e;
+          background: #e84393;
           color: #fff;
-          box-shadow: 0 6px 24px rgba(253,121,168,0.18);
+          box-shadow: 0 8px 32px rgba(253,121,168,0.25);
+          transform: translateY(-2px);
         }
       `}</style>
     </div>
